@@ -2,7 +2,6 @@ resource "aws_rds_cluster" "cluster" {
   cluster_identifier        = "${var.system_name}-cluster"
   engine                    = "aurora-mysql"
   engine_version            = "5.7.mysql_aurora.2.07.1"
-  availability_zones        = data.aws_availability_zones.zones.names
   database_name             = aws_ssm_parameter.dbname.value
   master_username           = aws_ssm_parameter.dbuser.value
   master_password           = aws_ssm_parameter.dbpassword.value
